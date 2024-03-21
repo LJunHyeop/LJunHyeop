@@ -16,7 +16,7 @@ public class PrintFormat {
         // 값을을 이용해서 yyyy-mm-dd를 하고싶은것
         int year = 2024;
         int mon = 3;
-        int day = 20;
+        int day = 1;
         System.out.printf("[%4d-%02d-%02d]\n", year, mon, day);
 
         String url = "www.green.com";
