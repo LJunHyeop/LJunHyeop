@@ -13,6 +13,9 @@ public class Naming {
         6. 여러 단어로 구성된 이름은 카멜 케이스 기법을 사용한다 .
         6-1 EX last index,of >> lastIndexOf happy,sunday,morning >happySundayMorning
          */
+        /*
+        케밥 케이스 기법 happy-sunday-morning
+         */
         /*클래스 명명규칙
         1. 클래스의 이름의 첫 글자는 무조건 대문자로 시작!
         2.여러 단어로 구성된 이름은 첫글자를 모두 대문자로 한다. >파스칼 케이스 기법
