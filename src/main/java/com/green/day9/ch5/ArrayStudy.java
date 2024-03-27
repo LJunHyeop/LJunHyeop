@@ -20,7 +20,7 @@ public class ArrayStudy {
         System.out.println("numArr2[1]: " + numArr2[1]);
 
         int[] numArr3 = new int[]{10, 20, 30}; // 칸도 만들고 초기화도 바로한다 .
-
+        // int aaa = null; 에러
 
         //int [] numArr4 = new String[5]; 는 안된다. 타입이 달라서
 
