@@ -29,7 +29,7 @@ public class MissionArray2V2 {
                 }
             }
             if (check == 0) {
-                arr[i] = a;
+                arr[i] = i;
                 i++;
             }
         }

@@ -12,7 +12,7 @@ public class ArrayEx7v3 {
         //10 , 11 , 12 , ~~~19
         int abc = 0;
         for (int i = 0; i < numArr.length; i++) {
-            int a = (int) (Math.random() * 10.0);
+            int a = (int) (Math.random() * numArr.length);
             abc = numArr[i];
             numArr[i] = numArr[a];
             numArr[a] = abc;
