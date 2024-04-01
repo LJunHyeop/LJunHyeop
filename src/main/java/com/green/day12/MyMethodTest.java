@@ -22,6 +22,8 @@ public class MyMethodTest {
 
         mm.printGugudan(5);
 
+        mm.Gugudan(3, 9);
+
         int randomValue2 = mm.getRandomValue(10, 20); // 10~ 19 랜덤한 숫자 나올수있도록
         System.out.println(randomValue2);
         randomValue2 = mm.getRandomValue(5, 30); // 5~ 29 랜덤한 숫자 나올수있도록
@@ -52,6 +54,16 @@ class MyMethod {
     void printGugudan(int dan) {
         for (int i = 1; i < 10; i++) {
             System.out.printf("%d * %d = %d \n", dan, i, dan * i);
+        }
+        System.out.println("===========");
+    }
+
+    void Gugudan(int start, int End) {
+        for (int i = start; i <= End; i++) {
+            for (int z = 1; z < 10; z++) {
+                System.out.printf("%d * %d = %d \n", i, z, (i * z));
+            }
+            System.out.println("===========");
         }
     }
 

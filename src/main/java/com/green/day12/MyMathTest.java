@@ -33,7 +33,7 @@ class MyMath {
 
     int returnAdd(int n1, int n2) {    //인트가 들어갓다고해서 리턴타입을 꼭 int 로 내보낼필요는없다  리턴 type 을 마음대로 바꿀 수 있다.
         return n1 + n2;
-    }
+    }   // 같은 이름의 메소드를 만드는 기법 = 오버로딩  기준은 파라미터 가 달라야 만들 수있다 .
 
     void minus(int n1, int n2) {
         System.out.printf(" %d - %d = %d\n", n1, n2, n1 - n2);
