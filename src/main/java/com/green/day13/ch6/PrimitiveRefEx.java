@@ -26,7 +26,6 @@ public class PrimitiveRefEx {
     }
 }
 
-
 class Numbox {
     int num;
 }

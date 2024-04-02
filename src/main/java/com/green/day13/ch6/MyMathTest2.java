@@ -5,7 +5,7 @@ public class MyMathTest2 {
     public static void main(String[] args) {
 
         System.out.println(Math.abs(-100));
-        long r = MyMath2.add(10, 20); // static 가 붙어있기때문에 객체 생성과 상관없이 메모리에 올라가기떄문에 사용가능
+        long r = MyMath2.add(10, 20); // static 가 붙어있기때문에 객체 생성과 상관없이 메모리에 올라가기떄문에 사용가능 // 앞에 MyMath2를 지워서 빨간줄이안뜨면 같은 클래스에있고 스태틱 메소드이다.
         System.out.println("r : " + r);
 
         MyMath2 myMath2 = new MyMath2();
