@@ -4,8 +4,15 @@ public class DeckTest {
     public static void main(String[] args) {
         Deck deck = new Deck();
         deck.printAllCard();
+        Card c = deck.pick();
+        System.out.println("----------");
         deck.sf();
+        Card c2 = deck.pick(5);
+        System.out.println("[5] : " + c2);
         deck.printAllCard();
+        System.out.println("----------");
+        deck.shuffle();
+
 //        Card c = new Card();
 //        c.kind = "Spade";
 //        c.number = "A";
@@ -31,15 +38,48 @@ class Deck {
         String[] number = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         for (int i = 0; i < kind.length; i++) {
             for (int z = 0; z < number.length; z++) {
-                Card card = new Card();
+                Card card = new Card(kind[i], number[z]);
                 cards[idx++] = card;
-                card.kind = kind[i];
-                card.number = number[z];
-
             }
         }
 
+    }
 
+    public Card pick() {
+        Card i;
+        int rind = (int) (Math.random() * cards.length);
+        i = cards[rind];
+        cards[rind] = null;
+//        System.out.println("------------");
+//        System.out.println(i);
+        return i;
+
+    }
+
+    Card pick(int i) {
+        Card v = cards[i];
+        return v;
+    }
+
+    void shuffle() {
+        int idex = 0;
+        String[] kinds = {"Clover", "Heart", "Spade", "Diamond"};
+        int rind = (int) (Math.random() * cards.length);
+        for (int i = 0; i < kinds.length; i++) {
+            for (int z = 1; z <= 13; z++) {
+                String number = switch (z) {
+                    case 1 -> "A";
+                    case 11 -> "J";
+                    case 12 -> "Q";
+                    case 13 -> "K";
+                    default -> String.valueOf(z);
+                };
+                Card card = new Card(kinds[i], number);
+                card = cards[rind];
+
+
+            }
+        }
     }
 
     void sf() {
@@ -59,12 +99,18 @@ class Deck {
         }
 
     }
+
 }
 
 
 class Card {
     String kind; // 무늬
     String number; // 번호 A 2~10,J,Q,K
+
+    Card(String kind, String number) {
+        this.kind = kind;
+        this.number = number;
+    }
 
     @Override
     public String toString() {

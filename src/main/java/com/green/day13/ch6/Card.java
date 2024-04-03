@@ -1,6 +1,6 @@
 package com.green.day13.ch6;
 
-public class CardClass {
+public class Card {
     String shape;
 
     String number;
