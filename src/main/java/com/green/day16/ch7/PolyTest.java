@@ -11,6 +11,9 @@ public class PolyTest {
         Dog dog_1 = new BullDog();
 //        Dog dog_2 = new Animal();  컴파일 에러
 //        Dog dog_3 = (Dog)new Animal();
+        //Dog dog_7 = ani_2 는 빨간줄 ani_2 가 뭐가 들어가는지 모르기 때문 우리랑 다름
+        //Dog dog_7 = (Dog)ani_2 는 빨간줄이 안 그임
+        //Dog do_8 = (Dog)ani_0 컴파일 에러는 안터지지만 런타임 에러는 터진다 .
         ani_1.crying();
         Dog dog_4 = (Dog) ani_1;
         dog_4.sleep();
