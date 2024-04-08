@@ -9,8 +9,8 @@ public class ForLoop {
         // for while do=while
         //for(int i=5; i<11; i++)
         //System.out.println((i-4)+ ".Hello" ); //6번만이면 ?는 10까지
-        for (int i = 100; i > 96; i--) {
-            System.out.println("bye");
+        for (int i = 100; i < 104; i++) {
+            System.out.println(200 - i);
         }
     }
 }
