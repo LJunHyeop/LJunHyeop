@@ -10,6 +10,14 @@ public class Dealer extends Gamer {
         }
         return sum <= CAN_RECEIVE_POINT;
     }
+
+    public int getScore() {
+        int sum = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            sum += cards.get(i).getScore();
+        }
+        return sum;
+    }
 }
 
 

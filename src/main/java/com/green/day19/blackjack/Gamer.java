@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gamer {
+
     protected List<Card> cards;
 
     public Gamer() {
@@ -17,6 +18,14 @@ public class Gamer {
 
     public List<Card> openCards() {
         return cards;
+    }
+
+    public int getScore() {
+        int sum = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            sum += cards.get(i).getScore();
+        }
+        return sum;
     }
 }
 

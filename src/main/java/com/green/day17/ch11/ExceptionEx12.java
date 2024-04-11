@@ -9,16 +9,22 @@ public class ExceptionEx12 {
 //        } catch (Exception e) {
 //            throw new RuntimeException(e);
 //        }
-        divThrows(10, 2);
+        //divThrows(10, 2);
+        try {
+            divThrows(10, 0);
+        } catch (Exception e) {
+            div(10, 0);
+        }
+
         System.out.println("===종료===");
     }
 
 
-    public static void div(int n1, int n2) {  // static 가 붙냐 안붙냐는 차이가없다
-        System.out.println(n1 / n2);
-    }
+//    public static void div(int n1, int n2) {  // static 가 붙냐 안붙냐는 차이가없다
+//        System.out.println(n1 / n2);
+//    }
 
-    public static void divTry(int n1, int n2) {
+    public static void div(int n1, int n2) {
         try {
             System.out.println(n1 / n2);
         } catch (Exception e) {
