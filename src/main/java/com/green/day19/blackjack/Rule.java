@@ -15,6 +15,8 @@ public class Rule {
 //        int dealerScroe = dealer.getScore();
         if (gamerScroe > MAX_SCORE && dealerScroe > MAX_SCORE || gamerScroe == dealerScroe) {
             System.out.println("비겼습니다 ");
+
+
         } else if (gamerScroe < dealerScroe && dealerScroe <= MAX_SCORE || gamerScroe > MAX_SCORE) {
             System.out.println("딜러가 이겼습니다");
         } else {
