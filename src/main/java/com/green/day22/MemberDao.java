@@ -46,12 +46,16 @@ class MemberDaoDeleteTest {
     }
 }
 
-class selMemberList {
+class SelListMemberTest {
     public static void main(String[] args) {
-        MemberDao memberDao = new MemberDao();
-        MemberEntity member = new MemberEntity();
+        MemberDao dao = new MemberDao();
+        List<MemberEntity> list = dao.selMemberList();
+        for (MemberEntity member : list) {
+            System.out.println(member);
+        }
     }
 }
+
 
 public class MemberDao {
     private final MyConnection myConn;
@@ -93,10 +97,33 @@ public class MemberDao {
     public List<MemberEntity> selMemberList() {
         List<MemberEntity> list = new ArrayList<>();
         String sql = "SELECT mem_id, mem_name, debut_date\n" + "FROM member\n" + "ORDER BY debut_date DESC";
-        Connection conn = null;
-        Statement stat = null;
-        ResultSet re = null;
         System.out.println(sql);
+
+
+        try (Connection conn = myConn.getConn();
+             Statement stat = conn.createStatement();
+             ResultSet rs = stat.executeQuery(sql)) {
+            while (rs.next()) {
+                String memID = rs.getString("mem_id");
+                String memName = rs.getString("mem_name");
+                String debutDate = rs.getString("debut_date");
+
+                MemberEntity member = new MemberEntity();
+                list.add(member);
+                member.setMemId(memID);
+                member.setMemName(memName);
+                member.setDebutDate(debutDate);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+//        finally {
+//            myConn.close(rs,stat,conn);
+//        }
+
         return list;
     }
 

@@ -1,9 +1,6 @@
 package com.green.day22;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MyConnection {
     private final String DRIVER = "org.mariadb.jdbc.Driver";
@@ -44,6 +41,18 @@ public class MyConnection {
     public void close(Statement stat, Connection conn) {
         if (stat != null) {
             try {
+                stat.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        close(conn);
+    }
+
+    public void close(ResultSet rs, Statement stat, Connection conn) {
+        if (rs != null || stat != null) {
+            try {
+                rs.close();
                 stat.close();
             } catch (SQLException e) {
                 e.printStackTrace();
