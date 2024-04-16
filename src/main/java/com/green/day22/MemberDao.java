@@ -24,6 +24,7 @@ class SubStringTest {
     }
 }
 
+
 class MEmberDaoUpDateTest {
     public static void main(String[] args) {
         MemberDao memberDao = new MemberDao();
@@ -56,12 +57,47 @@ class SelListMemberTest {
     }
 }
 
+class SelMemberTest {
+    public static void main(String[] args) {
+        MemberDao dao = new MemberDao();
+        MemberEntity entity = dao.selMember("WMN");
+        System.out.println(entity);
+    }
+}
+
 
 public class MemberDao {
     private final MyConnection myConn;
 
     public MemberDao() {
         myConn = new MyConnection();
+    }
+
+    public MemberEntity selMember(String memID) {
+        String sql = String.format("SELECT mem_name, mem_number,addr,phone1" +
+                ", phone2, height, debut_date " +
+                "FROM member WHERE mem_id = '%s'", memID);
+        System.out.println(sql);
+        try (Connection conn = myConn.getConn();
+             Statement stat = conn.createStatement();
+             ResultSet rs = stat.executeQuery(sql)) {
+            if (rs.next()) {
+                MemberEntity entity = new MemberEntity();
+                entity.setMemId(memID);
+                entity.setMemName(rs.getString("mem_name"));
+                entity.setMemNumber(rs.getInt("mem_number"));
+                entity.setPhone1(rs.getString("phone1"));
+                entity.setPhone2(rs.getString("phone2"));
+                entity.setHeight(rs.getInt("height"));
+                entity.setDebutDate(rs.getString("debut_date"));
+                return entity;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public int insMember(MemberEntity entity) {
@@ -190,6 +226,7 @@ public class MemberDao {
 
         return result;
     }
+
 }
 
 
